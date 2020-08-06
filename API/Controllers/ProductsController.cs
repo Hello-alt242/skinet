@@ -5,7 +5,7 @@ using API.Dtos;
 using API.Errors;
 using API.Helpers;
 using AutoMapper;
-using Core.Entitites;
+using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Infrastructure.Data;
