@@ -1,11 +1,11 @@
-namespace Core.Entities.OrderAggregate
+﻿namespace Core.Entities.OrderAggregate
 {
-    public class OrderItem: BaseEntity
+    public class OrderItem : BaseEntity
     {
         public OrderItem()
         {
+            
         }
-
         public OrderItem(ProductItemOrdered itemOrdered, decimal price, int quantity)
         {
             ItemOrdered = itemOrdered;
@@ -13,8 +13,8 @@ namespace Core.Entities.OrderAggregate
             Quantity = quantity;
         }
 
-        public ProductItemOrdered ItemOrdered{get; set;}
-        public decimal Price{get; set;}
-        public int Quantity{get;set;}
+        public ProductItemOrdered ItemOrdered { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }

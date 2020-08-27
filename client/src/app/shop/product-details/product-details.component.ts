@@ -14,35 +14,34 @@ export class ProductDetailsComponent implements OnInit {
   product: IProduct;
   quantity = 1;
 
+  constructor(private shopService: ShopService,
+              private activateRoute: ActivatedRoute,
+              private bcService: BreadcrumbService,
+              private basketService: BasketService) {
+    this.bcService.set('@productDetails', '');
+  }
 
-  constructor(private shopService: ShopService, 
-    private activatedRoute: ActivatedRoute, 
-    private bcService: BreadcrumbService, 
-    private basketService: BasketService) {
-      this.bcService.set('@productDetails','');
-   }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadProduct();
   }
 
-  addItemToBasket(){
+  addItemToBasket() {
     this.basketService.addItemToBasket(this.product, this.quantity);
   }
 
-  incrementQuantity(){
+  incrementQuantity() {
     this.quantity++;
   }
 
-  decrementQuantity(){
-    if (this.quantity > 1){
+  decrementQuantity() {
+    if (this.quantity > 1) {
       this.quantity--;
     }
   }
 
-  loadProduct(){
-    this.shopService.getProduct(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe(product => {
-      this.product=product;
+  loadProduct() {
+    this.shopService.getProduct(+this.activateRoute.snapshot.paramMap.get('id')).subscribe(product => {
+      this.product = product;
       this.bcService.set('@productDetails', product.name);
     }, error => {
       console.log(error);

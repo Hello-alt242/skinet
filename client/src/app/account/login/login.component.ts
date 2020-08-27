@@ -12,25 +12,28 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   returnUrl: string;
 
-  constructor(private accountService: AccountService, private router: Router,
-              private activatedRoute: ActivatedRoute) { }
+  constructor(private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.returnUrl=this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/shop';
     this.createLoginForm();
   }
 
-  createLoginForm(){
-    this.loginForm=new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
-      password: new FormControl('',Validators.required)
+  // tslint:disable-next-line: typedef
+  createLoginForm() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators
+        .pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
+      password: new FormControl('', Validators.required)
     });
   }
 
-  onSubmit(){
-    this.accountService.login(this.loginForm.value).subscribe(()=>{
+  // tslint:disable-next-line: typedef
+  onSubmit() {
+    this.accountService.login(this.loginForm.value).subscribe(() => {
       this.router.navigateByUrl(this.returnUrl);
-    }, error=>{
+    }, error => {
       console.log(error);
     });
   }

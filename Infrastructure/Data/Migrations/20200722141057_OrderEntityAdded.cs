@@ -14,7 +14,7 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ShortName = table.Column<string>(nullable: true),
-                    DeliveryTIme = table.Column<string>(nullable: true),
+                    DeliveryTime = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false)
                 },
@@ -29,7 +29,7 @@ namespace Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BuyerEmail = table.Column<int>(nullable: false),
+                    BuyerEmail = table.Column<string>(nullable: true),
                     OrderDate = table.Column<DateTimeOffset>(nullable: false),
                     ShipToAddress_FirstName = table.Column<string>(nullable: true),
                     ShipToAddress_LastName = table.Column<string>(nullable: true),
@@ -38,9 +38,9 @@ namespace Infrastructure.Data.Migrations
                     ShipToAddress_State = table.Column<string>(nullable: true),
                     ShipToAddress_Zipcode = table.Column<string>(nullable: true),
                     DeliveryMethodId = table.Column<int>(nullable: true),
-                    Subtotal = table.Column<double>(nullable: false),
+                    SubTotal = table.Column<double>(nullable: false),
                     Status = table.Column<string>(nullable: false),
-                    PaymentIntent = table.Column<string>(nullable: true)
+                    PaymentIntentId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20200723175048_OrderEntityAdded")]
+    [Migration("20200722141057_OrderEntityAdded")]
     partial class OrderEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.6");
+                .HasAnnotation("ProductVersion", "3.1.5");
 
             modelBuilder.Entity("Core.Entities.OrderAggregate.DeliveryMethod", b =>
                 {
@@ -24,7 +24,7 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DeliveryTIme")
+                    b.Property<string>("DeliveryTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -47,8 +47,8 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BuyerEmail")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("BuyerEmail")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("DeliveryMethodId")
                         .HasColumnType("INTEGER");
@@ -56,14 +56,14 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTimeOffset>("OrderDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PaymentIntent")
+                    b.Property<string>("PaymentIntentId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Subtotal")
+                    b.Property<double>("SubTotal")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");

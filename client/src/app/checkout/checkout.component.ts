@@ -16,22 +16,21 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private accountService: AccountService, private basketService: BasketService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createCheckoutForm();
     this.getAddressFormValues();
-    this.getDeliveryMethodValue();
     this.basketTotals$ = this.basketService.basketTotal$;
   }
 
-  createCheckoutForm(){
+  createCheckoutForm() {
     this.checkoutForm = this.fb.group({
       addressForm: this.fb.group({
-        firstName: [null,Validators.required],
-        lastName: [null,Validators.required],
-        street: [null,Validators.required],
-        city: [null,Validators.required],
-        state: [null,Validators.required],
-        zipcode: [null,Validators.required],
+        firstName: [null, Validators.required],
+        lastName: [null, Validators.required],
+        street: [null, Validators.required],
+        city: [null, Validators.required],
+        state: [null, Validators.required],
+        zipcode: [null, Validators.required],
       }),
       deliveryForm: this.fb.group({
         deliveryMethod: [null, Validators.required]
@@ -42,21 +41,20 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  getAddressFormValues(){
+  getAddressFormValues() {
     this.accountService.getUserAddress().subscribe(address => {
-      if (address){
+      if (address) {
         this.checkoutForm.get('addressForm').patchValue(address);
       }
-    }, error =>{
+    }, error => {
       console.log(error);
     });
   }
 
-  getDeliveryMethodValue(){
+  getDeliveryMethodValue() {
     const basket = this.basketService.getCurrentBasketValue();
-    if (basket.deliveryMethodId !== null){
-      this.checkoutForm.get('deliveryForm').get('deliveryMethod').patchValue
-        (basket.deliveryMethodId.toString());
+    if(basket.deliveryMethodId !== null) {
+      this.checkoutForm.get('deliveryForm').get('deliveryMethod').patchValue(basket.deliveryMethodId.toString());
     }
   }
 

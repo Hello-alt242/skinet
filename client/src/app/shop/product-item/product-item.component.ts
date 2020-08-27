@@ -12,10 +12,11 @@ export class ProductItemComponent implements OnInit {
 
   constructor(private basketService: BasketService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  addItemToBasket(){
+  addItemToBasket() {
     this.basketService.addItemToBasket(this.product);
   }
+
 }

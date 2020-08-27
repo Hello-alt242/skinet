@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  RouterModule, Routes } from '@angular/router';
-import { BasketComponent } from './basket.component';
+import {BasketComponent} from './basket.component';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: BasketComponent}
@@ -12,6 +12,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class BasketRoutingModule { }

@@ -1,11 +1,5 @@
-<pagination 
-[boundaryLinks]="true" 
-[totalItems]="this.totalCount"
-(pageChanged)="onPagerChange($event)"
-[itemsPerPage]="this.pageSize"
-previousText="&lsaquo;" 
-nextText="&raquo;" 
-firstText="&laquo;"
-lastText="&laquo;">
+<pagination [boundaryLinks]="true" [totalItems]="totalCount" (pageChanged)="onPagerChange($event)"
+            [itemsPerPage]="pageSize"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
 
 </pagination>
