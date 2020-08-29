@@ -15,7 +15,8 @@ namespace API.Controllers
     public class PaymentsController : BaseApiController
     {
         private readonly IPaymentService _paymentService;
-        private readonly string _whSecret = "whsec_7FF2nwZi9syrG3UwdwKZOwvrWVpQoBjB";
+        //private readonly string _whSecret = "whsec_7FF2nwZi9syrG3UwdwKZOwvrWVpQoBjB";
+        private readonly string _whSecret;
         private readonly ILogger<IPaymentService> _logger;
         public PaymentsController(IPaymentService paymentService, ILogger<IPaymentService> logger, IConfiguration config)
         {
